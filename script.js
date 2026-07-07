@@ -613,7 +613,7 @@ function handleConnectSubmit(event) {
  */
 function buildWhatsAppMessage(formData, alumnus) {
   const greeting = alumnus 
-    ? `Hello ${alumnus.name}, 👋` 
+    ? `Hello Sir/Madam ${alumnus.name}, 👋` 
     : "Hello Sir/Madam, 👋";
 
   return (
@@ -623,7 +623,7 @@ function buildWhatsAppMessage(formData, alumnus) {
     `🎓 *Year:* ${formData.year}\n` +
     `📧 *Email ID:* ${formData.email}\n` +
     `📝 *Reason:* ${formData.reason}\n\n` +
-    "🙏 Thank you for your time and support."
+    "Thank you for your time and support."
   );
 }
 
