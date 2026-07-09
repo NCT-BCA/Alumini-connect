@@ -381,7 +381,7 @@ const ALUMNI_DATA = [
     bio: "Specialized in full stack development with a focus on .NET and Angular. Can provide guidance on front-end frameworks, application architecture, and best practices in web development."
   },
   {
-    id: 23,
+    id: 29,
     name: "Rubesh K",
     photo: "https://ui-avatars.com/api/?name=Rubesh+K&background=F2B100&color=1a1a1a&size=200&font-size=0.36&bold=true",
     batch: "2019 - 2022",
@@ -394,7 +394,7 @@ const ALUMNI_DATA = [
     bio: "Specialized in software development and application building. Can provide guidance on coding best practices, software design, and development methodologies."
   },
   {
-    id: 24,
+    id: 30,
     name: "Murali",
     photo: "https://ui-avatars.com/api/?name=Murali&background=0C2461&color=fff&size=200&font-size=0.36&bold=true",
     batch: "2019 - 2022",
@@ -405,6 +405,32 @@ const ALUMNI_DATA = [
     experience: "3 years",
     contactNumber: "917010866869",
     bio: "Specialized in healthcare management and administration. Can provide guidance on healthcare operations, patient care, and management best practices."
+  },
+  {
+    id: 31,
+    name: "Mukesh D",
+    photo: "https://ui-avatars.com/api/?name=Mukesh+D&background=1E4FD8&color=fff&size=200&font-size=0.36&bold=true",
+    batch: "2019 - 2022",
+    company: "ISRO (VSSC) Apprenticeship",
+    position: "Technology Development",
+    careerPath: "Technology Engineering",
+    skills: ["HTML", "CSS", "Javascript", "SQL"],
+    experience: "1 year",
+    contactNumber: "918760159055",
+    bio: "Specialized in technology development and engineering. Can provide guidance on engineering best practices, project management, and technology innovation."
+  },
+  {
+    id: 32,
+    name: "Sivaprakasam C ",
+    photo: "https://ui-avatars.com/api/?name=Sivaprakasam+C+&background=F2B100&color=1a1a1a&size=200&font-size=0.36&bold=true",
+    batch: "2019 - 2022",
+    company: "KUN Capital automotive pvt ltd ",
+    position: "Warranty Executive",
+    careerPath: "Automotive Services",
+    skills: ["DBMS", "SAP", "Microsoft Suite"],
+    experience: "2 years",
+    contactNumber: "919789636448",
+    bio: "Specialized in automotive services and warranty management. Can provide guidance on customer service, warranty processes, and sales techniques."
   },
 ];
 
