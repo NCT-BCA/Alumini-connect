@@ -289,6 +289,123 @@ const ALUMNI_DATA = [
     contactNumber: "919677648585",
     bio: "Specialized in software development and application building. Can provide guidance on coding best practices, software design, and development methodologies."
   },
+  {
+    id: 22,
+    name: "Sivagurunathan P",
+    photo: "https://ui-avatars.com/api/?name=Sivagurunathan+P&background=1E4FD8&color=fff&size=200&font-size=0.36&bold=true",
+    batch: "2019 - 2022",
+    company: "Vagus Technologies, Trichy",
+    position: "Net Full Stack Developer",
+    careerPath: "Full Stack Development",
+    skills: ["NET", "Angular", "C#", "MySQL", "JavaScript", "Typescript", "HTML", "CSS", "EF core", "N8N", "UI/UX"],
+    experience: "2 years",
+    contactNumber: "918825799943",
+    bio: "Specialized in full stack development with a focus on .NET and Angular. Can provide guidance on front-end frameworks, application architecture, and best practices in web development."
+  },
+  {
+    id: 23,
+    name: "Ravikumar P",
+    photo: "https://ui-avatars.com/api/?name=Ravikumar+P&background=F2B100&color=1a1a1a&size=200&font-size=0.36&bold=true",
+    batch: "2019 - 2022",
+    company: "Omegahealthcare, Trichy",
+    position: "Employee ",
+    careerPath: "Healthcare Management",
+    skills: ["Healthcare"],
+    experience: "1 year",
+    contactNumber: "919150386874",
+    bio: "Specialized in healthcare management and administration. Can provide guidance on healthcare operations, patient care, and management best practices."
+  },
+  {
+    id: 24,
+    name: "Kalaivani V",
+    photo: "https://ui-avatars.com/api/?name=Kalaivani+V&background=0C2461&color=fff&size=200&font-size=0.36&bold=true",
+    batch: "2019 - 2022",
+    company: "Access health care, Chennai",
+    position: "Ar caller",
+    careerPath: "Healthcare Management",
+    skills: [ "HTML", "CSS","Javascript"],
+    experience: "4 years",
+    contactNumber: "918925059245",
+    bio: "Specialized in software development and application building. Can provide guidance on coding best practices, software design, and development methodologies."
+  },
+  {
+    id: 25,
+    name: "Priyadharshan",
+    photo: "https://ui-avatars.com/api/?name=Priyadharshan&background=1E4FD8&color=fff&size=200&font-size=0.36&bold=true",
+    batch: "2019 - 2022",
+    company: "Capgemini",
+    position: "Process associate",
+    careerPath: "Software Development",
+    skills: ["C++", "Digital Marketing", "Content Writer", "Telesales"],
+    experience: "1 year",
+    contactNumber: "918608525568",
+    bio: "Specialized in software development and application building. Can provide guidance on coding best practices, software design, and development methodologies."
+  },
+  {
+    id: 26,
+    name: "Subhashini R",
+    photo: "https://ui-avatars.com/api/?name=Subhashini+R&background=F2B100&color=1a1a1a&size=200&font-size=0.36&bold=true",
+    batch: "2019 - 2022",
+    company: "MOBO MEDIA ",
+    position: "Laravel developer",
+    careerPath: "Software Development",
+    skills: ["Laravel", "MySQL", "Laragon", "API Integration", "Payment Integration"],
+    experience: "2 years",
+    contactNumber: "919566815781",
+    bio: "Specialized in software development and application building. Can provide guidance on coding best practices, software design, and development methodologies."
+  },
+  {
+    id: 27,
+    name: "Pragadeesh",
+    photo: "https://ui-avatars.com/api/?name=Pragadeesh&background=0C2461&color=fff&size=200&font-size=0.36&bold=true",
+    batch: "2019 - 2022",
+    company: "Omega health care",
+    position: "AR Analyst",
+    careerPath: "Healthcare Management",
+    skills: [ "HTML", "CSS"],
+    experience: "3 years",
+    contactNumber: "917339131284",
+    bio: "Specialized in healthcare management and administration. Can provide guidance on healthcare operations, patient care, and management best practices."
+  },
+  {
+    id: 28,
+    name: "Logeshwaran",
+    photo: "https://ui-avatars.com/api/?name=Logeshwaran&background=1E4FD8&color=fff&size=200&font-size=0.36&bold=true",
+    batch: "2019 - 2022",
+    company: "Trichy",
+    position: "Software developer ",
+    careerPath: "Software Development",
+    skills: ["Python", "SQL", "Github", "HTML"],
+    experience: "1 year",
+    contactNumber: "916385848279",
+    bio: "Specialized in full stack development with a focus on .NET and Angular. Can provide guidance on front-end frameworks, application architecture, and best practices in web development."
+  },
+  {
+    id: 23,
+    name: "Rubesh K",
+    photo: "https://ui-avatars.com/api/?name=Rubesh+K&background=F2B100&color=1a1a1a&size=200&font-size=0.36&bold=true",
+    batch: "2019 - 2022",
+    company: "Data mark BPO service LLP",
+    position: "Process associate",
+    careerPath: "Software Development",
+    skills: ["SMS handling", "Email handling", "Data entry"],
+    experience: "2 years",
+    contactNumber: "919943277705",
+    bio: "Specialized in software development and application building. Can provide guidance on coding best practices, software design, and development methodologies."
+  },
+  {
+    id: 24,
+    name: "Murali",
+    photo: "https://ui-avatars.com/api/?name=Murali&background=0C2461&color=fff&size=200&font-size=0.36&bold=true",
+    batch: "2019 - 2022",
+    company: "Bristol Healthcare services Chennai",
+    position: "Consultant (Medical Billing)",
+    careerPath: "Healthcare Management",
+    skills: [ "Medical Billing", "Healthcare Management"],
+    experience: "3 years",
+    contactNumber: "917010866869",
+    bio: "Specialized in healthcare management and administration. Can provide guidance on healthcare operations, patient care, and management best practices."
+  },
 ];
 
 // Rotating career tips — one is chosen at random every page load.
@@ -618,11 +735,11 @@ function buildWhatsAppMessage(formData, alumnus) {
 
   return (
     `${greeting}\n\n` +
-    "📩 *BCA Student Request*\n\n" +
-    `👤 *Name:* ${formData.name}\n` +
-    `🎓 *Year:* ${formData.year}\n` +
-    `📧 *Email ID:* ${formData.email}\n` +
-    `📝 *Reason:* ${formData.reason}\n\n` +
+    " *BCA Student Request*\n\n" +
+    ` *Name:* ${formData.name}\n` +
+    ` *Year:* ${formData.year}\n` +
+    ` *Email ID:* ${formData.email}\n` +
+    ` *Reason:* ${formData.reason}\n\n` +
     "Thank you for your time and support."
   );
 }
