@@ -432,6 +432,19 @@ const ALUMNI_DATA = [
     contactNumber: "919789636448",
     bio: "Specialized in automotive services and warranty management. Can provide guidance on customer service, warranty processes, and sales techniques."
   },
+  {
+    id: 30,
+    name: "Manojkumar S",
+    photo: "https://ui-avatars.com/api/?name=Manojkumar+S&background=0C2461&color=fff&size=200&font-size=0.36&bold=true",
+    batch: "2019 - 2022",
+    company: "Knackforge",
+    position: "AWS Devops Engineer",
+    careerPath: "Cloud Computing",
+    skills: [ "Docker", "Terraform", "yaml" ],
+    experience: "3 years",
+    contactNumber: "919025671865",
+    bio: "Specialized in cloud computing and DevOps practices. Can provide guidance on containerization, infrastructure as code, and deployment strategies."
+  },
 ];
 
 // Rotating career tips — one is chosen at random every page load.
