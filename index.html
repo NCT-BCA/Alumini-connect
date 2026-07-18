@@ -14,7 +14,63 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<!-- ==========================================================================
+     BRIDGE 2 ALUMNI — PRELOADER MARKUP
+     loader.html
 
+     This is a FRAGMENT, not a full page. Paste this block as the very
+     first element inside your existing <body>, above all your current
+     site content. Do not change anything else in your index.html.
+     ========================================================================== -->
+
+<div id="b2a-loader" aria-hidden="true">
+
+  <!-- Ambient background: glow orbs + light rays + particle container -->
+  <div class="b2a-orb b2a-orb--1"></div>
+  <div class="b2a-orb b2a-orb--2"></div>
+  <div class="b2a-orb b2a-orb--3"></div>
+  <div class="b2a-rays"></div>
+  <div class="b2a-particles" id="b2a-particles"><!-- particles injected by loader.js --></div>
+
+  <div class="b2a-stage">
+
+    <!-- Logo placeholder: circular glass container with an abstract
+         "bridge / connection" SVG icon. Swap the <svg> below for your
+         real logo whenever it's ready — just keep it inside .b2a-logo
+         so the glass container styling still applies. -->
+    <div class="b2a-logo">
+      <img src="NCT.png" alt="National College Logo" class="b2a-logo-img" />
+    </div>
+
+    <!-- Title: each letter is its own span so it can animate in
+         individually. This is generated automatically by loader.js from
+         the data-text attribute below — you do not need to hand-write
+         each <span>, but the fallback markup here ensures the title
+         still reads correctly if JavaScript fails to load. -->
+    <h1 class="b2a-title" id="b2a-title" data-text="BRIDGE 2 ALUMNI">BRIDGE 2 ALUMNI</h1>
+
+    <!-- B2A large mark -->
+    <div class="b2a-mark">B2A</div>
+
+    <!-- Optional quiet supporting line -->
+    <p class="b2a-tagline">Connecting every batch</p>
+
+  </div>
+</div>
+
+<!-- ==========================================================================
+     Your existing site content should be wrapped once, e.g.:
+
+     <div id="site-content" class="b2a-site-reveal"> ...your entire
+       existing page markup, completely unchanged... </div>
+
+     Wrapping it is optional — loader.js works with or without it — but
+     wrapping it lets the site fade + rise into view as the loader exits.
+     See the integration instructions in the accompanying README section
+     of this response for exact steps.
+     ========================================================================== -->
+
+<div id="site-content" class="b2a-site-reveal">
 <!-- ============ SITE HEADER ============ -->
 <header class="site-header" id="siteHeader">
   <div class="header-top">
@@ -230,6 +286,8 @@
 
 <!-- Toast notification -->
 <div class="toast" id="toast"></div>
+
+</div><!-- /#site-content -->
 
 <script src="script.js"></script>
 </body>
