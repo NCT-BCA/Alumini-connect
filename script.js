@@ -9,7 +9,7 @@
    1. DATA
    --------------------------------------------------------------- */
 
-// WhatsApp number the "Connect with Me" form sends requests to.
+   // WhatsApp number the "Connect with Me" form sends requests to.
 const DEPARTMENT_WHATSAPP_NUMBER = "918608865811";
 
 // Alumni records. Replace this array with a fetch() call to a real
@@ -679,6 +679,19 @@ const ALUMNI_DATA = [
     contactNumber: "919500622138",
     bio: "Specialized in software development and application building. Can provide guidance on coding best practices, software design, and development methodologies."
   },
+  {
+    id: 52,
+    name: "Logesh M",
+    photo: "https://ui-avatars.com/api/?name=Logesh+M&background=1E4FD8&color=fff&size=200&font-size=0.36&bold=true",
+    batch: "2020 - 2023",
+    company: "Casagrande propcare ",
+    position: "Procurement ",
+    careerPath: "Procurement Management",
+    skills: ["Vlook up", "Sourcing", "Purchasing"],
+    experience: "1 year",
+    contactNumber: "918248361876",
+    bio: "Specialized in procurement management and supply chain operations. Can provide guidance on sourcing strategies, vendor management, and purchasing processes."
+  },
 ];
 
 // Rotating career tips — one is chosen at random every page load.
@@ -1163,3 +1176,143 @@ function drawHeroNetwork() {
     </svg>
   `;
 }
+
+/* ==========================================================================
+   BRIDGE 2 ALUMNI — PRELOADER LOGIC
+   loader.js
+   --------------------------------------------------------------------------
+   Vanilla JS only. No dependencies. Runs once per page load, then removes
+   itself from the DOM so it never interferes with your site afterwards.
+
+   WHAT THIS SCRIPT DOES, IN ORDER
+   1. Locks page scroll while the loader is visible.
+   2. Splits the "Bridge 2 Alumni" title into one <span> per letter so
+      loader.css can animate each letter in with a staggered delay.
+   3. Scatters a handful of floating particle dots into the background.
+   4. Waits for the last letter to land, then adds the glow-sweep class.
+   5. After the full sequence (~4.6s), plays the exit animation, unlocks
+      scroll, reveals your site, then deletes the loader from the DOM.
+   ========================================================================== */
+
+(function b2aLoader() {
+  'use strict';
+
+  /*
+   * TIMELINE (total = 8 seconds before exit begins)
+   * 0.00s  — loader fades in
+   * 0.40s  — letters start dropping one by one
+   * ~1.87s — last letter lands
+   * ~1.87s — glow sweep starts (1.1s)
+   * ~2.97s — glow done; title fades OUT (0.5s)
+   * ~3.47s — B2A mark fades IN (0.8s)
+   * ~4.27s — B2A fully visible; hold until 8s
+   * 8.00s  — exit animation begins (0.7s)
+   * 8.70s  — loader removed from DOM
+   */
+  var CONFIG = {
+    letterStartDelay : 400,   // ms — must match CSS animation-delay base (0.4s)
+    letterStagger    : 250,   // ms — 13 letters × 385ms = 5s total for all letters
+    letterDuration   : 620,   // ms — must match b2a-letter-drop duration
+    glowDuration     : 1100,  // ms — must match b2a-title-sweep duration
+    titleOutDuration : 300,   // ms — must match b2a-title-out duration
+    markInDuration   : 600,   // ms — must match b2a-mark-in duration
+    totalDuration    : 7000,  // ms — total loader on-screen time before exit
+    exitDuration     : 700,   // ms — must match b2a-loader-exit duration
+    particleCount    : 18
+  };
+
+  var loader = document.getElementById('b2a-loader');
+  if (!loader) return;
+
+  var prefersReducedMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* 1. Lock scroll */
+  document.body.classList.add('b2a-loading');
+
+  /* 2. Split title into per-letter spans */
+  var titleEl = document.getElementById('b2a-title');
+  var letterCount = 0;
+
+  if (titleEl) {
+    var text = titleEl.getAttribute('data-text') || titleEl.textContent || '';
+    titleEl.textContent = '';
+    var visibleIndex = 0;
+    for (var i = 0; i < text.length; i++) {
+      var ch = text.charAt(i);
+      var span = document.createElement('span');
+      span.className = 'b2a-letter';
+      span.textContent = ch === ' ' ? '\u00A0' : ch;
+      if (ch !== ' ') {
+        span.style.setProperty('--b2a-i', visibleIndex);
+        visibleIndex++;
+      } else {
+        span.style.animation = 'none';
+        span.style.opacity = '1';
+        span.style.filter = 'none';
+        span.style.transform = 'none';
+      }
+      titleEl.appendChild(span);
+    }
+    letterCount = visibleIndex;
+  }
+
+  /* 3. Scatter particles */
+  var particleHost = document.getElementById('b2a-particles');
+  if (particleHost && !prefersReducedMotion) {
+    for (var p = 0; p < CONFIG.particleCount; p++) {
+      var dot = document.createElement('span');
+      dot.className = 'b2a-particle';
+      dot.style.left = Math.random() * 100 + '%';
+      dot.style.top  = 55 + Math.random() * 40 + '%';
+      dot.style.animationDuration = (5 + Math.random() * 5) + 's';
+      dot.style.animationDelay   = (Math.random() * 4) + 's';
+      particleHost.appendChild(dot);
+    }
+  }
+
+  /* 4. Calculate when the last letter finishes landing */
+  var lastLetterFinish = CONFIG.letterStartDelay +
+    (Math.max(letterCount - 1, 0) * CONFIG.letterStagger) +
+    CONFIG.letterDuration;
+
+  /* 5. Glow sweep starts right after last letter lands */
+  window.setTimeout(function () {
+    if (titleEl) titleEl.classList.add('b2a-glow');
+  }, prefersReducedMotion ? 0 : lastLetterFinish);
+
+  /* 6. After glow finishes: fade title OUT and show B2A mark simultaneously */
+  var afterGlow = lastLetterFinish + CONFIG.glowDuration;
+
+  window.setTimeout(function () {
+    if (titleEl) titleEl.classList.add('b2a-title-out');
+
+    /* Position the mark absolutely over the title's current spot */
+    var markEl = loader.querySelector('.b2a-mark');
+    if (markEl && titleEl) {
+      var titleRect = titleEl.getBoundingClientRect();
+      var stageRect = titleEl.parentElement.getBoundingClientRect();
+      markEl.style.top  = (titleRect.top  - stageRect.top  + titleRect.height / 2) + 'px';
+      markEl.style.left = (titleRect.left - stageRect.left + titleRect.width  / 2) + 'px';
+      markEl.style.transform = 'translate(-50%, -50%) scale(0.82)';
+      /* Trigger B2A fade-in at the exact same moment as title fade-out */
+      markEl.classList.add('b2a-mark-in');
+    }
+  }, prefersReducedMotion ? 0 : afterGlow);
+
+  /* 7. Exit at exactly 8 seconds */
+  var exitDelay = prefersReducedMotion ? 400 : CONFIG.totalDuration;
+
+  window.setTimeout(function () {
+    loader.classList.add('b2a-exit');
+    var siteEl = document.getElementById('site-content');
+    if (siteEl) siteEl.classList.add('b2a-site-reveal-in');
+
+    window.setTimeout(function () {
+      document.body.classList.remove('b2a-loading');
+      if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
+      document.dispatchEvent(new CustomEvent('b2a:loaderComplete'));
+    }, prefersReducedMotion ? 50 : CONFIG.exitDuration);
+  }, exitDelay);
+
+})();
