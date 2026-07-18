@@ -1021,11 +1021,11 @@ function buildWhatsAppMessage(formData, alumnus) {
 
   return (
     `${greeting}\n\n` +
-    " *BCA Student Request*\n\n" +
-    ` *Name:* ${formData.name}\n` +
-    ` *Year:* ${formData.year}\n` +
-    ` *Email ID:* ${formData.email}\n` +
-    ` *Reason:* ${formData.reason}\n\n` +
+    " BCA Student Request\n\n" +
+    ` Name: ${formData.name}\n` +
+    ` Year: ${formData.year}\n` +
+    ` Email ID: ${formData.email}\n` +
+    ` Reason: ${formData.reason}\n\n` +
     "Thank you for your time and support."
   );
 }
