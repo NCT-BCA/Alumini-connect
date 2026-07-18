@@ -1198,10 +1198,12 @@ body.b2a-loading {
 .b2a-site-reveal {
   opacity: 0;
   transform: translateY(16px);
+  pointer-events: none;
 }
 
 .b2a-site-reveal.b2a-site-reveal-in {
   animation: b2a-site-in 0.9s var(--b2a-ease-premium) forwards;
+  pointer-events: auto;
 }
 
 @keyframes b2a-site-in {
