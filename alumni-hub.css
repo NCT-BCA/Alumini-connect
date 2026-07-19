@@ -182,6 +182,19 @@ button {
   color: var(--white);
 }
 
+.alumni-section-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.alumni-section-logo-img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
 .hero {
   position: relative;
   padding: 72px 20px 48px;
@@ -651,6 +664,8 @@ button {
     padding-left: 20px;
     padding-right: 20px;
   }
+
+  .alumni-section-logo-img { width: 145px; height: 145px; }
 
   .section-heading {
     flex-direction: column;
